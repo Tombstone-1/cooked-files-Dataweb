@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dserver - Register</title>
+    <!-- Link stylesheet-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="/static/css/log-dash.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
+        crossorigin="anonymous"></script>
+</head>
+<!--Content-->
+
+<body class="bg-dark">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content"
+            class="my-3 w-100 flex-wrap d-flex justify-content-center align-items-center">
+            <main class="w-100">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5 col-md-10 col-12">
+                            <div class="card shadow-lg border-0 rounded-lg">
+                                <div class="card-header">
+                                    <h3 class="text-center font-weight-light my-sm-4 my-2">Register</h3>
+                                </div>
+                                <div class="card-body">
+                                    <!--form-data-->
+                                    <div class="form-group">
+                                        <form method="post" action="" name="form">
+                                            {% csrf_token %}
+
+                                            <label class="small mb-1" for="id_email">Email</label>
+                                            <input class="form-control py-sm-4 py-2" id="id_email" type="email" name="email" maxlength="60" placeholder="Enter Email" />
+
+                                            <label class="small mb-1" for="id_username">User name</label>
+                                            <input class="form-control py-sm-4 py-2" id="id_username" type="text" name="username" maxlength="30" placeholder="Enter Username" />
+
+                                            <label class="small mb-1" for="id_password1">Password</label>
+                                            <input class="form-control py-sm-4 py-2" id="id_password1" type="password" name="password1" placeholder="Enter Password" />
+
+                                            <label class="small mb-1" for="id_password2">Confirm Password</label>
+                                            <input class="form-control py-sm-4 py-2" id="id_password2" type="password" name="password2" placeholder="Confirm Password" />
+                                            
+                                            {% for field in registration_form %}
+                                            {% for error in field.errors %}
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{error}}
+                                                </div>
+                                            {% endfor %}
+                                            {% endfor %}
+
+                                            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                                <a class="small" href="{% url 'login' %}">Sign In instead</a>
+                                                <button class="btn btn-primary" type="submit">Register</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- end form-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <!--end Content-->
+        <!--Footer-->
+        <div id="layoutAuthentication_footer"><br><br>
+            <footer class="py-2 py-sm-4 bg-light mt-auto">
+                <div class="container-fluid">
+                    <div
+                        class="flex-wrap d-flex align-items-center justify-content-center justify-content-sm-between small">
+                        <div class="text-muted">Data Server Footer</div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- scripts ref-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="/static/js/sidenav.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+    <script src="/static/demo/datatables-demo.js"></script>
+    <!-- forcsv -->
+</body>
+
+</html>
