@@ -55,12 +55,8 @@ def login_view(request):
 
 def logout_user(request):
     logout(request)
-    return redirect("home")
+    return redirect("login")
 
-def home_view(request):
-    saleData = Sales.objects.all()
-    context={'lists' : saleData}
-    return render(request, 'home.html', context)
 
 @login_required(login_url='login')
 def dashboard_view(request):
